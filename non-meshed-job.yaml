@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: non-meshed-test-job
+spec:
+  template:
+    metadata:
+       annotations:
+         linkerd.io/inject: disabled
+    spec:
+      containers:
+      - args:
+        - -c
+        - |
+          select * from temp_delete_track_table;
